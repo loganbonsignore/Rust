@@ -1,8 +1,6 @@
 use actix_web::{get, web, App, HttpServer, Responder};
 use reqwest::blocking::Client;
 
-extern crate reqwest;
-
 async fn coinbase(query_tup: &(&str, &str), client: Client) {
     // Calls coinbase API for price info (in developement)
     let query_str = format!("https://api.pro.coinbase.com/products/{ticker}-{currency}/ticker", ticker=query_tup.0, currency=query_tup.1);
